@@ -1,30 +1,14 @@
-#!/usr/bin/python
+#!/usr/bin/env python
 """
 Plot GMRS license applications over time using FCC ULS transactions file
 a_gmrs.zip -> HS.dat
-
-filenames:
-http://wireless.fcc.gov/uls/documentation/pa_intro24.pdf
-
-application codes:
-http://wireless.fcc.gov/uls/releases/d992205c.pdf
-
-New license order of transactions:
-RECNE     New App Received
-RDLCOM    Review completed
-FVPCNF    Payment Confirmed
-RDLCOM    Review completed
-APGRT     App Granted
-AUTHPR    Auth Printed
-
-
-APGRT: Application Granted
-AUTHGE: Authorization generated (not used after 1998 ?)
 """
 import datetime
 from pathlib import Path
 from pandas import read_csv
-from matplotlib.pyplot import figure,show
+from matplotlib.pyplot import gca,show
+import seaborn as sns
+sns.set_context('talk',font_scale=1.5)
 
 fn = 'data/a_gmrs/HS.dat'
 # %%
@@ -41,6 +25,9 @@ dat['date'] = [datetime.date(int(d[6:]), int(d[:2]), int(d[3:5])) for d in dat['
 
 uniq = dat.drop_duplicates(subset='App',keep='last')
 
-#uniq.plot('date')
+uniq['date'].hist(bins=1000)
+ax = gca()
+ax.set_title('GMRS license grants')
+ax.set_xlim((datetime.date(1994,1,1),datetime.date.today()))
 
 show()
