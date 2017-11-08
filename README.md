@@ -1,9 +1,11 @@
+[![Maintainability](https://api.codeclimate.com/v1/badges/90b6f7affdeffbc69167/maintainability)](https://codeclimate.com/github/scivision/fcc-uls-transactions/maintainability)
+
 # fcc-uls-transactions
 parse FCC ULS transactions data (daily or all) text HS.dat et al
 
 ## Example for GMRS
 
-![GMRS histogram](https://github.com/scivision/fcc-uls-transactions/data/gmrs.eps)
+![GMRS histogram](data/gmrs.pngs)
 
 ```sh
 mkdir -p data/a_gmrs
