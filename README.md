@@ -5,7 +5,7 @@ parse FCC ULS transactions data (daily or all) text HS.dat et al
 
 ## Example for GMRS
 
-![GMRS histogram](data/gmrs.pngs)
+![GMRS histogram](data/gmrs.png)
 
 ```sh
 mkdir -p data/a_gmrs
