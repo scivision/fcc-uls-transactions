@@ -7,6 +7,13 @@
 =====================
 parse FCC ULS transactions data (daily or all) text HS.dat et al
 
+
+Install
+=======
+:: 
+    
+    pip install -e .
+
 GMRS Example
 ============
 
