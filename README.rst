@@ -13,12 +13,13 @@ GMRS Example
 .. image:: data/gmrs.png
    :alt: GMRS histogram
 
-```sh
-mkdir -p data/a_gmrs
-cd data/a_gmrs
-wget http://wireless.fcc.gov/uls/data/complete/a_gmrs.zip
-unzip a_gmrs.zip
-```
+.. code:: bash
+
+    mkdir -p data/a_gmrs
+    cd data/a_gmrs
+    wget http://wireless.fcc.gov/uls/data/complete/a_gmrs.zip
+    unzip a_gmrs.zip
+
 
 HS.dat codes
 ============
