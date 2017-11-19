@@ -1,17 +1,10 @@
 #!/usr/bin/env python
-req = ['nose','setuptools','pandas','matplotlib','seaborn']
-# %%
-import pip
-try:
-    import conda.cli
-    conda.cli.main('install',*req)
-except Exception:
-    pip.main(['install'] + req)
-# %%
-from setuptools import setup
+req = ['nose','pandas',]
+
+from setuptools import setup,find_packages
 
 setup(name='fcctrans',
-      packages=['fcctrans'],
+      packages=find_packages(),
       author='Michael Hirsch, Ph.D.',
       url='https://github.com/scivision/fcc-uls-transactions',
       version='0.9.0',
@@ -20,5 +13,7 @@ setup(name='fcctrans',
       'Programming Language :: Python :: 3',
       ],
       install_requires = req,
+      python_requires='>=3.6',
+      extras_require={'plot':['matplotlib','seaborn']},
       description='Plot FCC ULS license grants vs. time',
 	  )
