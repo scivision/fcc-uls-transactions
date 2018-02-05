@@ -5,7 +5,11 @@
 =====================
  fcc-uls-transactions
 =====================
-parse FCC ULS transactions data (daily or all) text HS.dat et al
+parse FCC ULS transactions data (daily or all) text HS.dat
+
+
+.. image:: data/gmrs.png
+   :alt: GMRS histogram
 
 
 Install
@@ -14,25 +18,30 @@ Install
     
     pip install -e .
 
-GMRS Example
-============
+Usage
+=====
+This automatically 
 
-.. image:: data/gmrs.png
-   :alt: GMRS histogram
+1. downloads the most recent FCC service license application data for your server.
+2. extracts ``HS.dat``
+3. plots histogram of FCC service license grants vs. time
 
-.. code:: bash
 
-    mkdir -p data/a_gmrs
-    cd data/a_gmrs
-    wget http://wireless.fcc.gov/uls/data/complete/a_gmrs.zip
-    unzip a_gmrs.zip
+GMRS::
+
+    python gmrs.py
+
+
+Amateur Radio::
+
+    python amateur.py
 
 
 HS.dat codes
 ============
-`FCC Transaction filename key <http://wireless.fcc.gov/uls/documentation/pa_intro24.pdf>`_
 
-`FCC Transaction application codes <http://wireless.fcc.gov/uls/releases/d992205c.pdf>`_
+* FCC Transaction filename `key <http://wireless.fcc.gov/uls/documentation/pa_intro24.pdf>`_
+* FCC Transaction application `codes <http://wireless.fcc.gov/uls/releases/d992205c.pdf>`_
 
 New license order of transactions:
 
@@ -45,6 +54,7 @@ FVPCNF    Payment Confirmed
 RDLCOM    Review completed
 APGRT     App Granted
 AUTHPR    Auth Printed
+========  ============
 
 
 :APGRT: Application Granted
@@ -54,6 +64,5 @@ AUTHPR    Auth Printed
 Download data
 =============
 
-`Entire history of FCC (back to late 1990s) <http://wireless.fcc.gov/uls/index.htm?job=transaction&page=weekly>`_
-
-`GMRS applications <http://wireless.fcc.gov/uls/data/complete/a_gmrs.zip>`_
+* `Entire history of FCC (back to late 1990s) <http://wireless.fcc.gov/uls/index.htm?job=transaction&page=weekly>`_
+* GMRS license application `data <http://wireless.fcc.gov/uls/data/complete/a_gmrs.zip>`_

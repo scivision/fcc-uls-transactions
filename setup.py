@@ -1,5 +1,6 @@
 #!/usr/bin/env python
-req = ['nose','pandas',]
+install_requires = ['pandas','numpy','scipy']
+tests_require = ['nose','coveralls']
 
 from setuptools import setup,find_packages
 
@@ -9,11 +10,13 @@ setup(name='fcctrans',
       url='https://github.com/scivision/fcc-uls-transactions',
       version='0.9.0',
       classifiers=[
-      'Development Status :: 3 - Alpha',
-      'Programming Language :: Python :: 3',
+      'Development Status :: 4 - Beta',
+      'Programming Language :: Python',
       ],
-      install_requires = req,
+      install_requires = install_requires,
+      extras_require = {'tests':tests_require,'plot':['matplotlib','seaborn']},
+      tests_require = tests_require,
       python_requires='>=3.6',
-      extras_require={'plot':['matplotlib','seaborn']},
       description='Plot FCC ULS license grants vs. time',
+      long_description = open('README.rst').read()
 	  )
