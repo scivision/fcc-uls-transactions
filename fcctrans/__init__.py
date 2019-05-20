@@ -2,11 +2,11 @@ import urllib.request
 from pathlib import Path
 import zipfile
 import pandas
-import datetime
+from datetime import datetime, date
 from matplotlib.pyplot import gca
 
 
-def get_fcculs(url: str, datadir: Path='data') -> Path:
+def get_fcculs(url: str, datadir: Path = 'data') -> Path:
     """download FCC GMRS license data if necessary"""
 
     datadir = Path(datadir).expanduser()
@@ -35,15 +35,15 @@ def parse_fcculs(fn: Path) -> pandas.DataFrame:
                           dtype=str)
 
     dat.dropna(how='any', inplace=True)
-    dat['date'] = [datetime.date(int(d[6:]), int(d[:2]), int(d[3:5])) for d in dat['date']]
+    dat['date'] = [date(int(d[6:]), int(d[:2]), int(d[3:5])) for d in dat['date']]
 
     uniq = dat.drop_duplicates(subset='App', keep='last')
 
     return uniq
 
 
-def plot_fcc_license_apps(dat: pandas.DataFrame, begin: datetime=None,
-                          end: datetime=datetime.date.today()):
+def plot_fcc_license_apps(dat: pandas.DataFrame, begin: datetime = None,
+                          end: datetime = date.today()):
     """plot license data"""
 
     dat['date'].hist(bins=1000)

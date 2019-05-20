@@ -2,7 +2,7 @@ language: python
 group: travis_latest
 
 git:
-  depth: 3
+  depth: 25
   quiet: true
 
 python:
