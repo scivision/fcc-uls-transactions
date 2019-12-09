@@ -6,7 +6,7 @@ from datetime import datetime, date
 from matplotlib.pyplot import gca
 
 
-def get_fcculs(url: str, datadir: Path = 'data') -> Path:
+def get_fcculs(url: str, datadir: Path) -> Path:
     """download FCC GMRS license data if necessary"""
 
     datadir = Path(datadir).expanduser()
@@ -23,7 +23,7 @@ def get_fcculs(url: str, datadir: Path = 'data') -> Path:
             urllib.request.urlretrieve(url, zipfn)
 
         with zipfile.ZipFile(zipfn) as z:
-            z.extract('HS.dat', opath)
+            z.extract('HS.dat', str(opath))
 
     return fn
 
@@ -43,7 +43,7 @@ def parse_fcculs(fn: Path) -> pandas.DataFrame:
 
 
 def plot_fcc_license_apps(dat: pandas.DataFrame, begin: datetime = None,
-                          end: datetime = date.today()):
+                          end: datetime = None):
     """plot license data"""
 
     dat['date'].hist(bins=1000)
