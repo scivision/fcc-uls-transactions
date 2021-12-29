@@ -1,8 +1,9 @@
 import urllib.request
 from pathlib import Path
 import zipfile
-import pandas
 from datetime import datetime, date
+
+import pandas
 from matplotlib.pyplot import gca
 
 
@@ -10,6 +11,7 @@ def get_fcculs(url: str, datadir: Path) -> Path:
     """download FCC GMRS license data if necessary"""
 
     datadir = Path(datadir).expanduser()
+    datadir.mkdir(parents=True, exist_ok=True)
 
     zipfn = datadir / url.split("/")[-1]
     opath = datadir / zipfn.stem

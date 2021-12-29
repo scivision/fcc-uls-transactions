@@ -2,7 +2,7 @@
 
 parse FCC ULS transactions data (daily or all) text HS.dat
 
-![GMRS histogram](data/gmrs.png)
+![GMRS histogram](./data/gmrs.png)
 
 ## Install
 
